@@ -1,11 +1,11 @@
+/** @type {import('next').NextConfig} */
 module.exports = {
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*',
-      
-      },
+        hostname: '**', // Allows all subdomains and domains
+      } 
     ],
   },
-}
+};
