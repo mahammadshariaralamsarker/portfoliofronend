@@ -38,8 +38,7 @@ const BlogComponent = () => {
 
   // Create Blog Submission
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    createBlog(data);
-    console.log(data);
+    createBlog(data); 
     reset();
   };
 

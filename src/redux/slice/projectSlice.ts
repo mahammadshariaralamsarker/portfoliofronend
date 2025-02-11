@@ -37,7 +37,10 @@ export const projectApi = createApi({
         url: `project/${_id}`,
         method: "DELETE",
       }),
-      invalidatesTags: (result, error, id) => [{ type: "project", id }, "project"],
+      invalidatesTags: (result, error, id) => [
+        { type: "project", id },
+        "project",
+      ],
     }),
   }),
 });

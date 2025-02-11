@@ -18,8 +18,11 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white shadow-md  w-full  ">
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <Link href="/" className="text-2xl font-bold">
-          MyWebsite
+        <Link
+          href="/"
+          className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text"
+        >
+          Shariar
         </Link>
 
         {/* Desktop Menu */}
@@ -29,7 +32,7 @@ const Navbar = () => {
               key={link.name}
               href={link.path}
               className={`px-4 py-2 rounded-lg transition ${
-                pathname === link.path ? "bg-blue-600" : "hover:bg-gray-700"
+                pathname === link.path ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" : "hover:bg-gray-700"
               }`}
             >
               {link.name}
@@ -38,10 +41,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>

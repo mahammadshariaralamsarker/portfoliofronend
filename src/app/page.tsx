@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const skills = [
   "React.js & Next.js",
@@ -47,9 +48,9 @@ const Home = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-2xl md:text-4xl xl:text-5xl text-gray-700 dark:text-gray-300 font-semibold"
+            className="text-2xl md:text-4xl xl:text-5xl text-gray-700 dark:text-gray-400 font-semibold"
           >
-            MERN Stack Developer
+            <span className="text-blue-500">MERN</span> Stack Developer
           </motion.h2>
 
           {/* Call to Action */}
@@ -111,12 +112,16 @@ const Home = () => {
                 hidden: { opacity: 0, y: 10 },
                 visible: { opacity: 1, y: 0 },
               }}
-              className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg shadow-md"
+              className="flex items-center gap-2 bg-gray-100 dark:bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-4 py-2 rounded-lg shadow-md text-black"
             >
               ✅ {skill}
             </motion.li>
           ))}
         </motion.ul>
+      </section>
+      <section className=" mt-8">
+
+      <Link href="/login"  className="px-6 py-3 bg-red-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 transition duration-300">Admin Login</Link>
       </section>
     </main>
   );
