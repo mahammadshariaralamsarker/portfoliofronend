@@ -1,16 +1,16 @@
 "use client";
 import { loginUser } from "@/components/actions/loginUser";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { redirect } from 'next/navigation'
+import Link from "next/link"; 
+import { useForm } from "react-hook-form"; 
 
 export type FormValues = {
   email: string;
   password: string;
 };
 
-const LoginPage = () => {
+const LoginPage = () => { 
   const {
     register,
     handleSubmit,
@@ -21,13 +21,9 @@ const LoginPage = () => {
   const onSubmit = async (data: FormValues) => {
 
     try {
-      const res = await loginUser(data);
-      console.log(res);
+      const res = await loginUser(data); 
       if(res.data){
-        localStorage.setItem('token',res.data)
-        alert('Login Successful')
-        redirect('/admin/blogs')
-      
+        alert('Login Successful') 
       }
     } catch (error) {
       console.log(error);
@@ -109,7 +105,12 @@ const LoginPage = () => {
 
           {/* Social Login Buttons */}
           <div className="flex justify-center gap-4 mt-4">
-            <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
+            <button
+            onClick={() =>
+              signIn("google", {
+                callbackUrl: "http://localhost:3000/admin/blogs",
+              })
+            } className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
               <Image
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
                 width={30}
@@ -117,7 +118,14 @@ const LoginPage = () => {
                 alt="Google logo"
               />
             </button>
-            <button className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
+            <button
+              onClick={() =>
+                signIn("github", {
+                  callbackUrl: "http://localhost:3000/admin/blogs",
+                })
+              }
+              className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
+            >
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 width={25}

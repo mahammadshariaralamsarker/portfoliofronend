@@ -1,24 +1,32 @@
+'use client'
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
   return (
-    <div className="  ">
+    <div className=" -ml-20 flex ">
       {/* Sidebar */}
-      <aside className="w-60  bg-gray-900 text-white p-5 fixed h-screen">
-        <nav className="mt-5 ">
-          <ul className="space-y-3">
-            <li className="p-2 hover:bg-gray-700 rounded">
-              <Link href="/admin/projects">Projects</Link>
+      <aside className="w-60 text-center bg-gray-900 text-white p-5 max-h-full">
+      <nav className="w-52">
+        <ul className="space-y-3">
+          {[
+            { name: "Projects", path: "/admin/projects" },
+            { name: "Blogs", path: "/admin/blogs" },
+            { name: "Message", path: "/admin/messages" },
+          ].map((item) => (
+            <li
+              key={item.path}
+              className={`p-2 rounded ${
+                pathname === item.path ? "bg-blue-500" : "bg-gray-700"
+              }`}
+            >
+              <Link href={item.path}>{item.name}</Link>
             </li>
-            <li className="p-2 hover:bg-gray-700 rounded">
-              <Link href="/admin/blogs">Blogs</Link>
-            </li>
-            <li className="p-2 hover:bg-gray-700 rounded">
-              <Link href="/admin/messages">Message</Link>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+          ))}
+        </ul>
+      </nav>
+    </aside>
 
       {/* Main Content */}
       <div className="  max-w-3xl mx-auto   overflow-y-auto">

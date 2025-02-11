@@ -1,5 +1,5 @@
 "use client";
-
+ 
 import { useState } from "react";
 
 const MessageForm = () => {
@@ -36,8 +36,15 @@ const MessageForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-3 p-4 border rounded-lg shadow-lg">
-      <h2 className="text-xl font-bold mb-4">Send us a message</h2>
+    <div>
+      <section className=" p-5 text-center text-3xl md:text-5xl xl:text-6xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+        mahammadshariaralam@gmail.com
+        <br />
+        or
+      </section>
+      <section>
+      <div className="max-w-md mx-auto mt-3 p-4 border rounded-lg shadow-lg">
+      <h2 className="text-xl font-bold mb-4 text-center">Send me a message</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -73,6 +80,8 @@ const MessageForm = () => {
         </button>
       </form>
       {status && <p className="mt-2 text-center">{status}</p>}
+    </div>
+      </section>
     </div>
   );
 };

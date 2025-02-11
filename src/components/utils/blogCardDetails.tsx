@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogDetails = ({ blog }: { blog: any }) => {
-  console.log(blog.image);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const BlogDetails = ({ blog }: { blog: any }) => { 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
       {/* Blog Title */}

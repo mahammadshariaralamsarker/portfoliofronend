@@ -26,12 +26,12 @@ const BlogCard = ({ blog }: { blog: any }) => {
         </div>
 
         {/* Blog Title */}
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-black mb-4">
           {blog.title}
         </h2>
 
         {/* Blog Content Snippet */}
-        <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+        <p className="text-gray-700 dark:text-black mb-4 line-clamp-3">
           {blog.content}
         </p>
 
